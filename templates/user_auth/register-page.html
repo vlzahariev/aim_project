@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load placeholders %}
+
+{% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Digital Agency Template</title>
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Open+Sans:400,600,700,800"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="/static/css/magnific-popup.css">
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" href="/static/responsive.css">
+    </head>
+    <div class="wrapper">
+    <header class="header">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="header-top">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="logo">
+                            <a href="{% url 'index' %}">
+                                <img src="../../static/img/aimtravel_logo.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-12 col-xs-12">
+                        <div class="menu">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="{% url 'index' %}">Начало</a></li>
+                                <li><a href="#">Контакти</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div>
+        <form method="post" action="{% url 'sign up' %}" style="{% static 'style.css' %}">
+            {% for field in form %}
+                {{ field.name }}
+                <p>
+                    {{ field.errors }}
+                    {{ field.lable }}
+                    {{ field }}
+                </p>
+
+            {% endfor %}
+            {% csrf_token %}
+            <button class="btn btn-primary btn-lg">Регистрирай ме</button>
+        </form>
+    </div>
+
+
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+
+{% endblock %}
