@@ -17,7 +17,13 @@
         <link rel="stylesheet" href="/static/css/magnific-popup.css">
         <link rel="stylesheet" href="/static/style.css">
         <link rel="stylesheet" href="/static/responsive.css">
-
+        <style>
+            li {
+                display: inline;
+                margin: 0 10px;
+                white-space: nowrap;
+            }
+        </style>
     </head>
     <div class="wrapper">
         <header class="header">
@@ -37,6 +43,10 @@
                                     <div class="menu">
                                         <ul class="nav navbar-nav">
                                             <li class="active"><a href="{% url 'index' %}">Начало</a></li>
+                                            {% if user.is_staff %}
+                                                <li><a href="http://localhost:8000/admin/">Администратор</a></li>
+                                                <li><a href="{% url 'add offer' %}">Добави оферта</a></li>
+                                            {% endif %}
                                             <li><a href="#">Контакти</a></li>
 
                                         </ul>
@@ -48,7 +58,7 @@
                                 <div>
                                     <ul>
                                         {% for offer in offer_list %}
-                                            <li>
+                                            <li style="display: inline-table; white-space: nowrap" >
                                                 <h3> {{ offer.job_position }} </h3>
                                                 <h5> {{ offer.city }} {{ offer.state }} </h5>
                                                 <h5> ${{ offer.wage|floatformat:2 }}/hour, {{ offer.employer }}</h5>

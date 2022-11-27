@@ -30,3 +30,4 @@ class SignOutView(auth_views.LogoutView):
 
 def auth_option(request):
     return render(request, template_name='user_auth/auth_page.html')
+

@@ -8,15 +8,18 @@ class SignUpForm(auth_forms.UserCreationForm):
         model = UserModel
         fields = (UserModel.USERNAME_FIELD, 'password1', 'password2')
 
-    def save(self, commit=True):
-        user = super().save(commit=commit)
-
-        profile = UserModel(
-            user=user,
-        )
-
-        if commit:
-            profile.save()
+    """
+    No need of override save method if use signal
+    """
+    # def save(self, commit=True):
+    #     user = super().save(commit=commit)
+    #
+    #     profile = UserModel(user=user)
+    #
+    #     if commit:
+    #         profile.save()
+    #
+    #     return user
 
 
 class EditForm(auth_forms.UserChangeForm):
@@ -30,14 +33,14 @@ class EditForm(auth_forms.UserChangeForm):
         fields = '__all__'
         field_classes = {'email': auth_forms.UsernameField}
 
-    def save(self, commit=True):
-        user = super().save(commit=commit)
-
-        profile = UserModel(
-            user=user,
-        )
-
-        if commit:
-            profile.save()
-
-        return user
+    # def save(self, commit=True):
+    #     user = super().save(commit=commit)
+    #
+    #     profile = UserModel(
+    #         user=user,
+    #     )
+    #
+    #     if commit:
+    #         profile.save()
+    #
+    #     return user

@@ -1,3 +1,4 @@
+from django.contrib.admin import AdminSite
 from django.urls import path
 
 from aimtravel_app.user_auth.views import SignUpView, SignInView, SignOutView, auth_option

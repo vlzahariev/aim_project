@@ -13,7 +13,6 @@ UserModel = get_user_model()
 
 # Create your models here.
 
-
 class Students(models.Model):
     FAMILY_STATUS = Choices('Single', 'Married', 'Engaged',)
 
@@ -172,6 +171,14 @@ class Students(models.Model):
         null=True,
         default='',
     )
+
+    def __str__(self):
+        name_str = f"{self.user}\n"
+        if self.first_name:
+            name_str += '\n' + '-' + '\n' + self.first_name
+        if self.last_name:
+            name_str += '\n' + self.last_name
+        return name_str
 
     @receiver(post_save, sender=UserModel)
     def create_profile(sender, instance, created, *args, **kwargs):

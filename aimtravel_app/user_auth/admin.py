@@ -9,7 +9,7 @@ from aimtravel_app.user_auth.models import AppUser
 class AppUserAdmin(auth_admin.UserAdmin):
     ordering = ('email',)
     list_display = ['email', 'date_joined', 'last_login', 'is_staff', 'is_superuser', 'is_active']
-    list_filter = ("is_staff", "is_superuser", "is_active")
+    list_filter = ('email', "is_staff", "is_superuser", "is_active")
     search_fields = ("email",)
     filter_horizontal = (
         "groups",

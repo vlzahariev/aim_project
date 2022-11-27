@@ -23,11 +23,12 @@
                                             {% if user.is_authenticated %}
                                                 <li><a href="#sign-in">Записване</a></li>
                                             {% endif %}
-                                            {% if user.is_superuser %}
+                                            {% if user.is_staff %}
+                                                <li><a href="http://localhost:8000/admin/">Администратор</a></li>
                                                 <li><a href="{% url 'add offer' %}">Добави оферта</a></li>
                                             {% endif %}
                                             <li><a href='{% url 'offers' %}'>Оферти</a></li>
-                                            <li><a href="#prices">Цени</a></li>
+                                            <li><a href="{% url 'prices' %}">Цени</a></li>
                                             <li><a href="#extra_services">Допълнителни услуги</a></li>
                                             <li><a href="#contacts">Контакти</a></li>
                                             {% if user.is_authenticated %}
@@ -298,12 +299,12 @@
 
             {% for o in object %}
 
-                    {{ o.job_position }}
-                    {{ o.city }},{{ o.state }}
-                    {{ o.employer }}
-                    {{ o.wage }}
-                    {{ o.sponsor }}
-                    <h5><a href="#">Допълнителни детайли</a></h5>
+                {{ o.job_position }}
+                {{ o.city }},{{ o.state }}
+                {{ o.employer }}
+                {{ o.wage }}
+                {{ o.sponsor }}
+                <h5><a href="#">Допълнителни детайли</a></h5>
 
             {% endfor %}
 
