@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load placeholders %}
+
+{% block content %}
+    <h2>ЗА НАС</h2>
+    <div class="about-icon">
+        <img src="../../static/img/section-icon.jpg" alt="">
+    </div>
+    <div class="container">
+        <div class="row">
+            <img src="Placeholder"
+                 alt="" height="100" width="100">"Placeholder for teamphoto"
+            <div class="col-md-6">
+                <div class="text">
+                    <h4>"""Мотивиращ цитат""" </h4>
+                    <h3>Кои сме ние</h3>
+                    <p>"""Кратка история""" </p>
+                    <h3>Нашата философия</h3>
+                    <p>"""Т Е К С Т""" </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1>НАШИЯТ ЕКИП</h1>
+    <div class="container">
+        {% for emp in employee_list %}
+            <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <div>
+                    <img src="{{ emp.employee_pic }}" alt="" height="100" width="100">
+                    <h3>{{ emp.employee_first_name }} {{ emp.employee_last_name }}</h3>
+                    <p>{{ emp.employee_role }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+        {#                                <div class="row">#}
+        {#                                    <div class="col-md-12">#}
+        {#                                        <div class="two1 tom">#}
+        {#                                            <div class="images">#}
+        {#                                                <img src="../../static/img/team-member1.jpg" alt="">#}
+        {#                                            </div>#}
+        {#                                            <div class="description">#}
+        {#                                                <h3>Teresa J. Gess--<span>DESIGNER</span></h3>#}
+        {#                                                <h4>07 Years Experience</h4>#}
+        {#                                                <h5>Lorem Ipsum is simply dummy text of the printing and typesetting#}
+        {#                                                    industry. Lorem#}
+        {#                                                    Ipsum has been the industry's standard dummy text ever since the#}
+        {#                                                    1500s,Lorem#}
+        {#                                                    Ipsum is simply dummy text of the printing and typesetting#}
+        {#                                                    industry. Lorem Ipsum#}
+        {#                                                    has been the industry's. </h5>#}
+        {#                                                <p><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a#}
+        {#                                                        href="#"><i#}
+        {#                                                        class="fa fa-dribbble" aria-hidden="true"></i></a><a#}
+        {#                                                        href="#"><i#}
+        {#                                                        class="fa fa-behance" aria-hidden="true"></i></a></p>#}
+        {#                                            </div>#}
+        {#                                        </div>#}
+        {#                                        <div class="two2 tom">#}
+        {#                                            <div class="images">#}
+        {#                                                <img src="../../static/img/team-member2.jpg" alt="">#}
+        {#                                            </div>#}
+        {#                                            <div class="description">#}
+        {#                                                <h3>Aaron Abraham--<span>WEB DESIGNER</span></h3>#}
+        {#                                                <h4>12 Years Experience</h4>#}
+        {#                                                <h5>Contrary to popular belief, Lorem Ipsum is not simply random#}
+        {#                                                    text. It has roots#}
+        {#                                                    in a piece of classical Latin literature from 45 BC, making it#}
+        {#                                                    over 2000 years#}
+        {#                                                    old. Richard McClintock, a Latin professor at Hampden-Sydney#}
+        {#                                                    College in#}
+        {#                                                    Virginia, looked up one of the </h5>#}
+        {#                                                <p><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a#}
+        {#                                                        href="#"><i#}
+        {#                                                        class="fa fa-dribbble" aria-hidden="true"></i></a><a#}
+        {#                                                        href="#"><i#}
+        {#                                                        class="fa fa-behance" aria-hidden="true"></i></a></p>#}
+        {#                                            </div>#}
+        {#                                        </div>#}
+        {#                                        <div class="two3 tom">#}
+        {#                                            <div class="images">#}
+        {#                                                <img src="../../static/img/team-member3.jpg" alt="">#}
+        {#                                            </div>#}
+        {#                                            <div class="description">#}
+        {#                                                <h3>Marksman Bartholomew <span>DESIGNER</span></h3>#}
+        {#                                                <h4>10 Years Experience</h4>#}
+        {#                                                <h5>There are many variations of passages of Lorem Ipsum available,#}
+        {#                                                    but the majority#}
+        {#                                                    have suffered alteration in some form, by injected humour, or#}
+        {#                                                    randomised words#}
+        {#                                                    which don't look even slightly believable. If you are going to#}
+        {#                                                    use a passage of#}
+        {#                                                    Lorem Ipsum, you </h5>#}
+        {#                                                <p><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a#}
+        {#                                                        href="#"><i#}
+        {#                                                        class="fa fa-dribbble" aria-hidden="true"></i></a><a#}
+        {#                                                        href="#"><i#}
+        {#                                                        class="fa fa-behance" aria-hidden="true"></i></a></p>#}
+        {#                                            </div>#}
+        {#                                        </div>#}
+        {#                                        <div class="two4 tom">#}
+        {#                                            <div class="images">#}
+        {#                                                <img src="../../static/img/team-member4.jpg" alt="">#}
+        {#                                            </div>#}
+        {#                                            <div class="description">#}
+        {#                                                <h3>Chad Chadwick--<span>WEB DESIGNER</span></h3>#}
+        {#                                                <h4>15 Years Experience</h4>#}
+        {#                                                <h5>It is a long established fact that a reader will be distracted#}
+        {#                                                    by the readable#}
+        {#                                                    content of a page when looking at its layout. The point of using#}
+        {#                                                    Lorem Ipsum is#}
+        {#                                                    that it has a more-or-less normal distribution of letters, as#}
+        {#                                                    opposed to using#}
+        {#                                                    'Content here, content</h5>#}
+        {#                                                <p><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a#}
+        {#                                                        href="#"><i#}
+        {#                                                        class="fa fa-dribbble" aria-hidden="true"></i></a><a#}
+        {#                                                        href="#"><i#}
+        {#                                                        class="fa fa-behance" aria-hidden="true"></i></a></p>#}
+        {#                                            </div>#}
+        </div>
+    </div>
+
+{% endblock %}

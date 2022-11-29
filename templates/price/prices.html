@@ -3,77 +3,29 @@
 
 
 {% block content %}
-    <head>
-    <style>
-        li {
-            display: inline;
-            white-space: nowrap;
-            margin: 0 10px;
-        }
-    </style>
-    </head>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-    <body>
-    <div class="wrapper">
-        <header class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="header-top">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-12 col-xs-12">
-                                    <div class="logo">
-                                        <a href="{% url 'index' %}">
-                                            <img src="../../static/img/aimtravel_logo.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-9 col-sm-12 col-xs-12">
-                                    <div class="menu">
-                                        <ul class="nav navbar-nav">
-                                            <li class="active"><a href="#">За нас</a></li>
-                                            {% if user.is_authenticated %}
-                                                <li><a href="#sign-in">Записване</a></li>
-                                            {% endif %}
-                                            {% if user.is_superuser %}
-                                                <li><a href="http://localhost:8000/admin/">Администратор</a></li>
-                                                <li><a href="{% url 'add offer' %}">Добави оферта</a></li>
-                                            {% endif %}
-                                            <li><a href='{% url 'offers' %}'>Оферти</a></li>
-                                            <li><a href="#extra_services">Допълнителни услуги</a></li>
-                                            <li><a href="#contacts">Контакти</a></li>
-                                            {% if user.is_authenticated %}
-                                                <li><a href="{% url 'details profile' pk=user.pk %}">Личен профил</a>
-                                                </li>
-                                                <li><a href="{% url 'sign out' %}">Изход</a></li>
-                                            {% else %}
-                                                <li><a href="{% url 'auth option' %}">Вход</a></li>
-                                            {% endif %}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% if prices_list %}
-                        <div>
-                            <ul>
-                                {% for price in prices_list %}
-                                    <li style="display: inline-block; white-space: nowrap">
-                                        <h3> {{ price.pricing_type }} </h3>
-                                        <h5> $ {{ price.price|floatformat:2 }} </h5>
-                                        <h5> {{ price.description }} </h5>
+    {% if prices_list %}
+        <div align="center">
+            <ul>
+                {% for price in prices_list %}
+                    <p>
+                        <li style="display: inline-block; white-space: nowrap">
+                    <h3> {{ price.pricing_type }} </h3>
+                    <h5> $ {{ price.price|floatformat:2 }} </h5>
+                    <h5> {{ price.description }} </h5>
 
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% else %}
-                        <p>Currently there are no available price plans.</p>
-                    {% endif %}
-                </div>
-            </div>
-        </header>
-    </div>
-    </body>
+                    </li>
+                    </p>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p>Currently there are no available price plans.</p>
+    {% endif %}
+
 {% endblock %}

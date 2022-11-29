@@ -1,129 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load placeholders %}
-{% load %}
 {% block content %}
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Digital Agency Template</title>
-        <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Open+Sans:400,600,700,800"
-              rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
-        <link rel="stylesheet" href="/static/css/bootstrap.css">
-        <link rel="stylesheet" href="/static/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="/static/css/magnific-popup.css">
-        <link rel="stylesheet" href="/static/style.css">
-        <link rel="stylesheet" href="/static/responsive.css">
-{#        <link rel="stylesheet" href="/static/css/login-page.css">#}
-    </head>
-    <div class="wrapper">
-        <header class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="header-top">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-12 col-xs-12">
-                                    <div class="logo">
-                                        <a href="{% url 'index' %}">
-                                            <img src="../../static/img/aimtravel_logo.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-9 col-sm-12 col-xs-12">
-                                    <div class="menu">
-                                        <ul class="nav navbar-nav">
-                                            <li class="active"><a href="{% url 'index' %}">Начало</a></li>
-                                            <li><a href="#">Контакти</a></li>
 
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-                <br>
-                <br>
-                <div class="container">
-                    <form method="post" action="{% url 'sign in' %}" style="alignment-baseline: center">
-                        {{ form.as_p }}
-                        <input type="hidden" name="next" value="{{ next }}">
-                        {% csrf_token %}
-                        <button class="btn btn-primary btn-lg">Влез</button>
-                    </form>
-                </div>
-{#                <div>#}
-{#                    <form method="get" action="javascript: void(0);" id="login-form" class="login-form"#}
-{#                          autocomplete="on" role="main">#}
-{#                        <h1 class="a11y-hidden">Welcome!</h1>#}
-{#                        <div>#}
-{#                            <label class="label-email">#}
-{#                                <input type="email" class="text" name="email" placeholder="Email" tabindex="1"#}
-{#                                       required/>#}
-{#                                <span class="required">Email</span>#}
-{#                            </label>#}
-{#                        </div>#}
-{#                        <input type="checkbox" name="show-password" class="show-password a11y-hidden" id="show-password"#}
-{#                               tabindex="3"/>#}
-{#                        <label class="label-show-password" for="show-password">#}
-{#                            <span>Show Password</span>#}
-{#                        </label>#}
-{#                        <div>#}
-{#                            <label class="label-password">#}
-{#                                <input type="text" class="text" name="password" placeholder="Password" tabindex="2"#}
-{#                                       required/>#}
-{#                                <span class="required">Password</span>#}
-{#                            </label>#}
-{#                        </div>#}
-{#                        <input type="submit" value="Log In"/>#}
-{#                        <button class="btn btn-primary btn-lg">Влез</button>#}
-{#                        <div class="email">#}
-{#                            <a href="#">Forgot password?</a>#}
-{#                        </div>#}
-{#                        <figure aria-hidden="true">#}
-{#                            <div class="person-body"></div>#}
-{#                            <div class="neck skin"></div>#}
-{#                            <div class="head skin">#}
-{#                                <div class="eyes"></div>#}
-{#                                <div class="mouth"></div>#}
-{#                            </div>#}
-{#                            <div class="hair"></div>#}
-{#                            <div class="ears"></div>#}
-{#                            <div class="shirt-1"></div>#}
-{#                            <div class="shirt-2"></div>#}
-{#                        </figure>#}
-{#                    </form>#}
-{#                </div>#}
-                <br>
-                <br>
-                <br><br>
-                <br><br>
-                <br><br><br><br><br><br><br><br>
-                <br>
-                <br><br>
-                <br>
-                <br><br>
-                <br>
-                <br><br>
-                <br>
-                <br><br>
-                <br>
-                <br><br>
-                <br>
-                <br><br>
-                <br>
-                <br><br>
-                <br>
-            </div>
-        </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <center>
+            <form method="post" action="{% url 'sign in' %}" style="alignment-baseline: center">
+                {{ form.as_p }}
+                <input type="hidden" name="next" value="{{ next }}">
+                {% csrf_token %}
+                <button class="btn btn-primary btn-lg">Влез</button>
+            </form>
+        </center>
     </div>
+    <br>
+    <br>
+
+
 
 
 {% endblock %}

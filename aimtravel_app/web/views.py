@@ -17,7 +17,7 @@ class CreateOfferView(LoginRequiredMixin, PermissionRequiredMixin, views.CreateV
     fields = '__all__'
     model = JobOffer
     template_name = 'job_offer/add_offer.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('index1')
 
 
 class DisplayOfferView(views.ListView):

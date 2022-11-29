@@ -3,107 +3,59 @@
 {% load placeholders %}
 
 {% block content %}
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Digital Agency Template</title>
-        <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Open+Sans:400,600,700,800"
-              rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
-        <link rel="stylesheet" href="/static/css/bootstrap.css">
-        <link rel="stylesheet" href="/static/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="/static/css/magnific-popup.css">
-        <link rel="stylesheet" href="/static/style.css">
-        <link rel="stylesheet" href="/static/responsive.css">
-    </head>
-    <div class="wrapper">
-        <header class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="header-top">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-12 col-xs-12">
-                                    <div class="logo">
-                                        <a href="{% url 'index' %}">
-                                            <img src="/static/img/aimtravel_logo.jpg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-9 col-sm-12 col-xs-12">
-                                    <div class="menu">
-                                        <ul class="nav navbar-nav">
-                                            <li class="active"><a href="{% url 'index' %}">Начало</a></li>
-                                            <li><a href="#">Контакти</a></li>
 
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+    <br><br><br>
+    <br>
+    <div data-inline-type="">
+        <div>
+            <a href="{% url 'edit profile' user.pk %}">
+                <button type="button" class="btn btn-primary btn-lg">Редактирай</button>
+            </a>
+        </div>
+        <div>
+            <form style="text-align: justify-all" method="post"
+                  action="{% url 'details profile' user.pk %}">
+                {% for field in fields %}
+                    <p>
+                        {{ field }}
+                    </p>
 
-                        </div>
-                    </div>
-                </div>
-                <br><br><br>
-                <br>
-                <div data-inline-type="">
-                    <div>
-                        <a href="{% url 'edit profile' user.pk %}">
-                            <button type="button" class="btn btn-primary btn-lg">Редактирай</button>
-                        </a>
-                    </div>
-                    <div>
-                        <form style="text-align: justify-all" method="post"
-                              action="{% url 'details profile' user.pk %}">
-                            {% for field in fields %}
-                                <p>
-                                {{ field }}
-                                </p>
+                {% endfor %}
+                {% csrf_token %}
+                <h3>
+                    <label for='first_name'>Име:&nbsp</label>{{ students.first_name }}
+                    <label for='middle_name'>Презиме:&nbsp</label>{{ students.middle_name }}
+                    <label for='last_name'>Фамилия:&nbsp</label>{{ students.last_name }}
+                </h3>
 
-                            {% endfor %}
-                            {% csrf_token %}
-                            <h3>
-                                <label for='first_name'>Име:</label>{{ students.first_name }}
-                                <label for='middle_name'>Презиме:</label>{{ students.middle_name }}
-                                <label for='last_name'>Фамилия:</label>{{ students.last_name }}
-                            </h3>
-                            <h3>Пол:{{ students.gender }}</h3>
-                            <h3>Националност:{{ students.nationality }} ЕГН:{{ students.bg_personal_number }}</h3>
-                            <h3>Номер на паспорт:{{ students.id_passport_number }} Дата на
-                                издаване:{{ students.passport_date_of_issue }}</h3>
-                            <h3>Има ли издадена виза:
-                                {% if students.is_received_visa %}
-                                    Да
-                                {% else %}
-                                    Не
-                                {% endif %}</h3>
-                            <h3>Телефон:{{ students.phone }} Е-mail:{{ students.email }}</h3>
-                            <h3>Дата на раждане:{{ students.date_of_birth }} Място на
-                                раждане:{{ students.place_of_birth }}</h3>
-                            <h3>Държава на раждане:{{ students.country_of_birth }}</h3>
-                            <h3>Университет:{{ students.university }}</h3>
-                            <h3>Курс:{{ students.year_of_education }}</h3>
-                            <h3>Редовно записан/а:
-                                {% if students.is_fulltime_student %}
-                                    Да
-                                {% else %}
-                                    Не
-                                {% endif %}
-                            </h3>
-                            <h3>Чуждестранен университет:{{ students.foreign_university }}</h3>
-                            <h3>Предпочитания за работа:{{ students.search_job_pref }}</h3>
-                            <h3>Начин на контакт:{{ students.how_to_reach }}</h3>
+                <h3>Националност:&nbsp{{ students.nationality }} ЕГН:&nbsp{{ students.bg_personal_number }}</h3>
+                <h3>Номер на паспорт:&nbsp{{ students.id_passport_number }} Дата на
+                    издаване:&nbsp{{ students.passport_date_of_issue }}</h3>
+                <h3>Има ли издадена виза:&nbsp
+                    {% if students.is_received_visa %}
+                        Да
+                    {% else %}
+                        Не
+                    {% endif %}</h3>
+                <h3>Телефон:&nbsp{{ students.phone }} Е-mail:&nbsp{{ students.email }}</h3>
+                <h3>Дата на раждане:&nbsp{{ students.date_of_birth }} Място на
+                    раждане:&nbsp{{ students.place_of_birth }}</h3>
+                <h3>Държава на раждане:&nbsp{{ students.country_of_birth }}</h3>
+                <h3>Университет:&nbsp{{ students.university }}</h3>
+                <h3>Курс:&nbsp{{ students.year_of_education }}</h3>
+                <h3>Редовно записан/а:&nbsp
+                    {% if students.is_fulltime_student %}
+                        Да
+                    {% else %}
+                        Не
+                    {% endif %}
+                </h3>
+                <h3>Чуждестранен университет:&nbsp{{ students.foreign_university }}</h3>
+                <h3>Предпочитания за работа:&nbsp{{ students.search_job_pref }}</h3>
+                <h3>Начин на контакт:&nbsp{{ students.how_to_reach }}</h3>
 
-
-                        </form>
-                    </div>
-
-                </div>
-
-            </div>
-        </header>
+            </form>
+        </div>
     </div>
 
 {% endblock %}

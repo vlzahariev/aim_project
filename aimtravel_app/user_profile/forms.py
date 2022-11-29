@@ -1,13 +1,8 @@
 from django import forms
 
+from aimtravel_app.user_profile.models import Students, Employee
 
-from aimtravel_app.user_profile.models import Students
 
-FAMILY_STATS_CHOICES = {
-    ('single', 'Single'),
-    ('Married', 'Married'),
-    ('Other', 'Other'),
-}
 YES_NO_CHOICES = {
     ('yes', 'Yes'),
     ('no', 'No'),
@@ -15,7 +10,7 @@ YES_NO_CHOICES = {
 
 
 class StudentEditForm(forms.ModelForm):
-    family_status = forms.ChoiceField(choices=FAMILY_STATS_CHOICES,)
+
     is_received_visa = forms.BooleanField(required=False)
     is_fulltime_student = forms.BooleanField(required=False)
     date_of_birth = forms.DateField(
@@ -49,7 +44,6 @@ class StudentEditForm(forms.ModelForm):
             'city': forms.TextInput(attrs={'placeholder': 'City'}),
             'province': forms.TextInput(attrs={'placeholder': 'Province'}),
             'street': forms.TextInput(attrs={'placeholder': 'Street'}),
-            'family_status': forms.CharField(),
             'bg_personal_number': forms.TextInput(attrs={'placeholder': 'EGN'}),
             'nationality': forms.TextInput(attrs={'placeholder': 'Nationality'}),
             'country_of_birth': forms.TextInput(attrs={'placeholder': 'Country of Birth'}),
@@ -70,4 +64,10 @@ class StudentEditForm(forms.ModelForm):
 class StudentDetailsForm(forms.ModelForm):
     class Meta:
         model = Students
+        exclude = ['user']
+
+
+class EmployeeDetailsForm(forms.ModelForm):
+    class Meta:
+        model = Employee
         exclude = ['user']
