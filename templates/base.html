@@ -50,11 +50,11 @@
                                         {% endif %}
                                         <li><a href='{% url 'offers' %}'>Оферти</a></li>
                                         <li><a href="{% url 'prices' %}">Цени</a></li>
-                                        <li><a href="#extra_services">Допълнителни услуги</a></li>
+                                        <li><a href="{% url 'show additional services' %}">Допълнителни услуги</a></li>
                                         <li><a href="#contacts">Контакти</a></li>
                                         {% if user.is_authenticated %}
                                             {% if user.is_staff %}
-                                                <li><a href="{% url 'employee details profile' pk=user.pk %}">Служебен
+                                                <li><a href="{% url 'employee profile details' pk=user.pk %}">Служебен
                                                     профил</a></li>
                                             {% else %}
                                                 <li><a href="{% url 'details profile' pk=user.pk %}">Личен

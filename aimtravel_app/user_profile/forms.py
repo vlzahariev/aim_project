@@ -2,15 +2,18 @@ from django import forms
 
 from aimtravel_app.user_profile.models import Students, Employee
 
-
 YES_NO_CHOICES = {
     ('yes', 'Yes'),
     ('no', 'No'),
 }
 
+"""
+Below two forms are related with Student Model. 
+They keep data needed for WAT program.
+"""
+
 
 class StudentEditForm(forms.ModelForm):
-
     is_received_visa = forms.BooleanField(required=False)
     is_fulltime_student = forms.BooleanField(required=False)
     date_of_birth = forms.DateField(
@@ -67,7 +70,27 @@ class StudentDetailsForm(forms.ModelForm):
         exclude = ['user']
 
 
+"""
+Below two forms are related with Employee Model. 
+They keep data related to the employees - can be seen on the 'about us' page.
+"""
+
+
 class EmployeeDetailsForm(forms.ModelForm):
     class Meta:
         model = Employee
         exclude = ['user']
+
+
+class EmployeeEditForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        exclude = ['user']
+        widgets = {
+            'employee_first_name': forms.TextInput(attrs={'placeholder': 'Име'}, ),
+            'employee_last_name': forms.TextInput(attrs={'placeholder': 'Фамилия'}, ),
+            'employee_role': forms.TextInput(attrs={'placeholder': 'Позиция'}, ),
+            'employee_pic': forms.TextInput(attrs={'placeholder': 'Снимка URL'}, ),
+            'employee_phone': forms.TextInput(attrs={'placeholder': 'Телефон'}, ),
+            'employee_email': forms.TextInput(attrs={'placeholder': 'E-mail'}, ),
+        }

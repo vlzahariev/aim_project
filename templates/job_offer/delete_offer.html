@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% load static %}
 {% load placeholders %}
@@ -10,10 +11,11 @@
     <div class="container" align="center">
 
         <div>
-            <form method="post" action="{% url 'add offer' %}" style="{% static 'style.css' %}">
-                {{ form.as_p }}
+            <form method="post" action="{% url 'delete offer' pk=delete_offer.pk %}" style="{% static 'style.css' %}">
+
                 {% csrf_token %}
-                <button class="btn btn-primary btn-lg">Добави обява</button>
+
+                <button type="submit" class="btn btn-primary btn-lg">Изтрий</button>
             </form>
         </div>
     </div>

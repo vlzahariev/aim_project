@@ -4,23 +4,27 @@
 
 {% block content %}
 
-    <h1>OFFERS</h1>
+    <h1>ОФЕРТИ</h1>
     {% if offer_list %}
         <div>
             <ul>
                 {% for offer in offer_list %}
                     <li style="display: inline-table; white-space: nowrap">
-                        <h3> {{ offer.job_position }} </h3>
-                        <h5> {{ offer.city }} {{ offer.state }} </h5>
-                        <h5> ${{ offer.wage|floatformat:2 }}/hour, {{ offer.employer }}</h5>
-                        <h5> {{ offer.sponsor }}</h5>
-                        <button class="btn btn-primary btn-lg">Details</button>
+                        <img src="{{ offer.offer_pic }}" alt="" width="200" height="200">
+                        <h2> {{ offer.job_position }} </h2>
+                        <h4> {{ offer.city }}, {{ offer.state }} </h4>
+                        <h4> ${{ offer.wage|floatformat:2 }}/hour, {{ offer.employer }}</h4>
+                        <h4> {{ offer.sponsor }}</h4>
+
+                        <a href="{% url 'details offer' offer.pk%}">
+                            <button class="btn btn-primary btn-lg">Виж повече</button>
+                        </a>
                     </li>
                 {% endfor %}
             </ul>
         </div>
     {% else %}
-        <p>Currently there are no available offers.</p>
+        <p>В момента няма налични оферти.</p>
     {% endif %}
 
 {% endblock %}

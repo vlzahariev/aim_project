@@ -1,7 +1,4 @@
 from django.contrib import admin
-
-# from aimtravel_app.user_profile.forms import StudentEditForm
-
 from aimtravel_app.user_profile.models import Students, Employee
 
 
@@ -12,6 +9,7 @@ class StudentsAdmin(admin.ModelAdmin):
 
 
 @admin.register(Employee)
-class StudentsAdmin(admin.ModelAdmin):
-    list_display = ['employee_role', 'employee_first_name', 'employee_last_name']
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = ['user', 'employee_role', 'employee_first_name', 'employee_last_name']
     list_filter = ['employee_role']
+

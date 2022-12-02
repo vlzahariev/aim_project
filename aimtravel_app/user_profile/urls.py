@@ -1,6 +1,7 @@
 from django.urls import path, include
 
-from aimtravel_app.user_profile.views import EditUserProfileView, UserProfileView, EmployeeProfileView, AllEmployeeView
+from aimtravel_app.user_profile.views import EditUserProfileView, UserProfileView, EmployeeProfileView, \
+    EditEmployeeProfileView
 
 urlpatterns = (
     path('profile/', include([
@@ -8,10 +9,7 @@ urlpatterns = (
         path('details/<int:pk>/', UserProfileView.as_view(), name='details profile'),
     ])),
     path('employee/', include([
-        # path('edit/<int:pk>/', EditUserProfileView.as_view(), name='edit profile'),
-        path('details/<int:pk>/', EmployeeProfileView.as_view(), name='employee details profile'),
-    ])),
-    path('company/', include([
-        path('team/', AllEmployeeView.as_view(), name='team'),
+        path('details/<int:pk>/', EmployeeProfileView.as_view(), name='employee profile details'),
+        path('edit/<int:pk>/', EditEmployeeProfileView.as_view(), name='employee profile edit')
     ])),
 )

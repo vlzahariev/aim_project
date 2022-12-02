@@ -3,21 +3,25 @@
 {% load placeholders %}
 
 {% block content %}
-    <h2>ЗА НАС</h2>
-    <div class="about-icon">
+    <h2 align="center">ЗА НАС</h2>
+    <div class="about-icon" align="center">
         <img src="../../static/img/section-icon.jpg" alt="">
     </div>
+    <br>
+    <br>
+    <br>
     <div class="container">
         <div class="row">
-            <img src="Placeholder"
-                 alt="" height="100" width="100">"Placeholder for teamphoto"
+{#            placeholder for teamphoto#}
+            <div class="col-md-6">
+            <img src="https://getcodingkids.com/wp-content/uploads/2016/05/TeamPhoto-300x177.jpg"
+                 alt="" height="280" width="500">
+            </div>
             <div class="col-md-6">
                 <div class="text">
-                    <h4>"""Мотивиращ цитат""" </h4>
+                    <h2 style="color: antiquewhite">РАБОТИ И ПЪТУВАЙ В САЩ</h2>
                     <h3>Кои сме ние</h3>
-                    <p>"""Кратка история""" </p>
-                    <h3>Нашата философия</h3>
-                    <p>"""Т Е К С Т""" </p>
+                    <p style="color: whitesmoke">AIM Travel e фирма, специализирала се в областта на студентските и младежки работни и обменни програми в чужбина с приоритет Work & Travel USA или така наречените Студентски Бригади в САЩ. Екипът AIM Travel помогна и продължава да помага на много младежи да придобият международен опит, да се изградят като млади лидери, да пътуват и разпространяват българската култура. Ние работим със студенти и доброволци, участваме в благотворителни дейности, а сега вече и предлагаме – Work and Travel USA. Endless Discovery. Ние от AIM Travel предлагаме най-добрите работни оферти за Нантъкет/Nantucket, Кейп Код/Cape Cod и Аляска/Alaska за Бригади в САЩ. Ако искаш да отидеш на място, което си виждал само по телевизията или да си купиш пръв Iphone 8 заповядай в нашия офис в Студентски Град.</p>
 
                 </div>
             </div>
@@ -29,7 +33,10 @@
     <br>
     <br>
 
-    <h1>НАШИЯТ ЕКИП</h1>
+    <h1 align="center">НАШИЯТ ЕКИП</h1>
+    <div class="about-icon" align="center">
+        <img src="../../static/img/section-icon.jpg" alt="">
+    </div>
     <div class="container">
         {% for emp in employee_list %}
             <div class="row">

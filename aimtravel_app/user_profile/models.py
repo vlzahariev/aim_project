@@ -8,9 +8,6 @@ from aimtravel_app.user_auth.models import AppUser
 UserModel = get_user_model()
 
 
-# Create your models here.
-
-
 class Students(models.Model):
     user = models.OneToOneField(
         UserModel,
@@ -168,6 +165,12 @@ class Students(models.Model):
             Students.objects.create(user=instance)
 
 
+"""
+Above 'Signal' is placed to create 'Student' (regular user) instance. 
+Can be filled later by the student/employee/superuser. 
+"""
+
+
 class Employee(models.Model):
     user = models.OneToOneField(
         UserModel,
@@ -194,8 +197,24 @@ class Employee(models.Model):
         blank=True,
         null=True,
     )
+    employee_phone = models.CharField(
+        max_length=15,
+        blank=True,
+        null=True,
+    )
+    employee_email = models.CharField(
+        max_length=40,
+        blank=True,
+        null=True,
+    )
 
     @receiver(post_save, sender=UserModel)
     def create_profile(sender, instance, created, *args, **kwargs):
         if created:
             Employee.objects.create(user=instance)
+
+
+"""
+Above 'Signal' is placed to create 'Employee' (staff user) instance. 
+Can be filled later by the employee/superuser. 
+"""

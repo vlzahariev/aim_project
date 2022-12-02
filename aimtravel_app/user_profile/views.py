@@ -1,12 +1,17 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse_lazy
-from django.views.generic import UpdateView, DetailView, ListView
+from django.views.generic import UpdateView, DetailView
 
-from aimtravel_app.user_profile.forms import StudentEditForm, StudentDetailsForm, EmployeeDetailsForm
+from aimtravel_app.user_profile.forms import StudentEditForm, StudentDetailsForm, EmployeeDetailsForm, EmployeeEditForm
 from aimtravel_app.user_profile.models import Students, Employee
 
+"""
+Following two views are related to User Details page and functionality for editing regular(students) user Details.
+All logged in users will be able to reach this page. 
+"Staff" members will be able to reach this page as well typing the URL of the page.
+"""
 
-# Create your views here.
+
 class EditUserProfileView(LoginRequiredMixin, UpdateView):
     model = Students
     form_class = StudentEditForm
@@ -23,6 +28,12 @@ class UserProfileView(LoginRequiredMixin, DetailView):
     form_class = StudentDetailsForm
 
 
+"""
+Below two views are related to Employee profile page and functionality to edit employee profile details.
+Only logged in as "Staff" members will be able to visit and edit this profile.
+"""
+
+
 class EmployeeProfileView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Employee
     permission_required = 'is_staff'
@@ -30,7 +41,12 @@ class EmployeeProfileView(LoginRequiredMixin, PermissionRequiredMixin, DetailVie
     form_class = EmployeeDetailsForm
 
 
-class AllEmployeeView(ListView):
+class EditEmployeeProfileView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Employee
-    template_name = 'about_us/team.html'
-    context_object_name = 'employee_list'
+    permission_required = 'is_staff'
+    form_class = EmployeeEditForm
+    template_name = 'user_profile/edit_employee_profile.html'
+
+    def get_success_url(self):
+        employee_pk = self.kwargs['pk']
+        return reverse_lazy('employee profile details', kwargs={'pk': employee_pk})

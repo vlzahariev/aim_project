@@ -3,39 +3,49 @@ from model_utils import Choices
 
 
 class JobOffer(models.Model):
-    state = models.CharField(
-        max_length=20,
-        blank=False,
-        null=False,
-    )
-
-    city = models.CharField(
-        max_length=20,
-        blank=False,
-        null=False,
-    )
-
     job_position = models.CharField(
-        max_length=30,
-        blank=False,
-        null=False,
-    )
-
-    employer = models.CharField(
+        verbose_name='Позиция',
         max_length=30,
         blank=True,
         null=True,
     )
-
-    sponsor = models.CharField(
-        max_length=15,
-        blank=False,
-        null=False,
+    employer = models.CharField(
+        verbose_name='Работодател',
+        max_length=30,
+        blank=True,
+        null=True,
     )
-
     wage = models.FloatField(
-        blank=False,
-        null=False,
+        verbose_name='Заплащане',
+        blank=True,
+        null=True,
+    )
+    city = models.CharField(
+        verbose_name='Град',
+        max_length=20,
+        blank=True,
+        null=True,
+    )
+    state = models.CharField(
+        verbose_name='Щат',
+        max_length=20,
+        blank=True,
+        null=True,
+    )
+    sponsor = models.CharField(
+        verbose_name='Спонсор',
+        max_length=15,
+        blank=True,
+        null=True,
+    )
+    offer_pic = models.URLField(
+        verbose_name='Снимка-URL',
+        blank=True,
+        null=True,
+    )
+    job_description = models.TextField(
+        blank=True,
+        null=True,
     )
 
     def __str__(self):
@@ -57,7 +67,7 @@ class Prices(models.Model):
 
     price = models.FloatField()
 
-    description = models.TextField(
+    price_description = models.TextField(
         blank=True,
         null=True,
         help_text="Please enter description"
@@ -65,3 +75,19 @@ class Prices(models.Model):
 
     def __str__(self):
         return f"{self.pricing_type}: $ {self.price:.2f}"
+
+
+class AdditionalServices(models.Model):
+    service_type = models.CharField(
+        max_length=30,
+        blank=True,
+        null=True,
+    )
+    service_description = models.TextField(
+        blank=True,
+        null=True,
+    )
+    service_price = models.FloatField(
+        blank=True,
+        null=True,
+    )

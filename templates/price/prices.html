@@ -3,29 +3,26 @@
 
 
 {% block content %}
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
+    <div>
+        <h1>ЦЕНИ</h1>
+    </div>
     {% if prices_list %}
-        <div align="center">
-            <ul>
-                {% for price in prices_list %}
-                    <p>
-                        <li style="display: inline-block; white-space: nowrap">
-                    <h3> {{ price.pricing_type }} </h3>
-                    <h5> $ {{ price.price|floatformat:2 }} </h5>
-                    <h5> {{ price.description }} </h5>
 
+        <div align="center">
+
+            {% for price in prices_list %}
+                <ul>
+                    <li style="display: inline-block; white-space: nowrap">
+                        <h3> {{ price.pricing_type }} </h3>
+                        <h5> $ {{ price.price|floatformat:2 }} </h5>
+                        <h5> {{ price.description }} </h5>
                     </li>
-                    </p>
-                {% endfor %}
-            </ul>
+                </ul>
+            {% endfor %}
+
         </div>
     {% else %}
-        <p>Currently there are no available price plans.</p>
+        <p>В момента няма актуална информация.</p>
     {% endif %}
 
 {% endblock %}
